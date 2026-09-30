@@ -1,6 +1,10 @@
 # Runtime working directory: uploads, outputs, temp, job history.
 workspace/
 
+# ClearerVoice downloads MossFormer2 into ./checkpoints in the working
+# directory, about 212 MB, with no way to redirect it.
+checkpoints/
+
 # Generated test media.
 samples/*.mp4
 !samples/noisy_test.mp4

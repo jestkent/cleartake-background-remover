@@ -201,6 +201,18 @@ To keep the model checkpoint inside the repo instead, pass a path to
 `init_df(model_base_dir=...)` in `engines/deepfilternet.py`, which currently
 passes `None` and so lands in the user cache directory.
 
+### ClearerVoice writes into the working directory
+
+Selecting the `clearervoice` engine downloads MossFormer2 to `./checkpoints`
+relative to wherever you launched from, about 212 MB, and takes no setting to
+put it anywhere else. It is gitignored. Worth knowing before wondering where
+the disk went, and worth deleting if you tried the engine once and moved on.
+
+Measured against DeepFilterNet3 on real 48 kHz voice, it removed 8 dB less
+noise, ran four times slower at 0.5x realtime on CPU against 2.1x, and left
+mouth clicks exactly where they were. There is no case for it on this
+material.
+
 ### torch is CPU only here
 
 PyPI's Windows torch wheel carries no CUDA, so `requirements-models.txt`
