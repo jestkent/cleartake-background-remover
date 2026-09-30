@@ -134,6 +134,8 @@ The UI is served from `web/dist`. After changing anything in `web/src`, run
 
 ## Environment and isolation
 
+Repo: <https://github.com/jestkent/cleartake-background-remover> (public).
+
 Everything this project installs lives in `.venv` at the repo root. Nothing
 goes into the system interpreter, and nothing outside this directory is
 modified. Verified 2026-09-29: `include-system-site-packages = false`, and the

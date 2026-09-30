@@ -30,7 +30,7 @@ model, and it is scoped as phase 4 in `plan.md`.
 Needs **Python 3.10+** and **ffmpeg** on your PATH.
 
 ```bash
-git clone <your-repo> cleartake
+git clone https://github.com/jestkent/cleartake-background-remover.git cleartake
 cd cleartake
 pip install -r requirements.txt
 ```
