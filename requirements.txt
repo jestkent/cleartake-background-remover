@@ -1,0 +1,18 @@
+# ClearTake base install. Light, no model downloads.
+# Everything here is needed for the pipeline, API, and CLI to run.
+
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+python-multipart>=0.0.12      # multipart upload parsing for FastAPI
+pydantic>=2.9.0
+PyYAML>=6.0.1
+
+numpy>=1.26.0
+scipy>=1.11.0                 # STFT, Butterworth filters, running-mean baseline
+
+# Optional but recommended. Widens WAV format support beyond the built-in
+# RIFF parser. The pipeline works without it.
+soundfile>=0.12.1
+
+# Testing only.
+pytest>=8.0.0

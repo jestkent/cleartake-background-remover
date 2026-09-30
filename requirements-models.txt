@@ -1,0 +1,25 @@
+# Optional AI denoise engines. Roughly 500 MB to 2.5 GB depending on what
+# torch pulls in. Install these when the spectral gate is not enough.
+#
+#   pip install -r requirements-models.txt
+#
+# Restart ClearTake afterwards. It detects the new engines and the 'auto'
+# setting upgrades itself. Nothing else to change.
+
+# --- DeepFilterNet3: the recommended default -----------------------------
+# Full-band 48 kHz, faster than realtime even on CPU.
+# On Windows, if the pip install of deepfilternet fails to build, the CLI
+# binary from the project's GitHub releases works too. ClearTake falls back
+# to it automatically if it finds `deepFilter` on PATH.
+torch>=2.1.0
+torchaudio>=2.1.0
+deepfilternet>=0.5.6
+
+# --- ClearerVoice MossFormer2: the heavy option --------------------------
+# Uncomment if DeepFilterNet is not enough. Wants a GPU.
+# clearvoice>=0.1.0
+
+# --- For phase 4, background speaker extraction --------------------------
+# Not wired up yet. See plan.md.
+# speechbrain>=1.0.0
+# faster-whisper>=1.0.0

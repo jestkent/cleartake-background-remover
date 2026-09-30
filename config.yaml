@@ -1,0 +1,25 @@
+# ClearTake configuration.
+paths:
+  ffmpeg: ffmpeg
+  ffprobe: ffprobe
+  work_dir: ./workspace
+  uploads: ./workspace/uploads
+  outputs: ./workspace/outputs
+  temp: ./workspace/temp
+  jobs_db: ./workspace/jobs.json
+server:
+  host: 127.0.0.1
+  port: 7788
+  open_browser: true
+  max_upload_mb: 8192
+  workers: 1
+audio:
+  sample_rate: 48000
+  output_codec: aac
+  output_bitrate: 256k
+  keep_original_track: true
+engines:
+  default: auto
+  deepfilternet_model: DeepFilterNet3
+  clearervoice_model: MossFormer2_SE_48K
+  device: auto

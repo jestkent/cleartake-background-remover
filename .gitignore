@@ -1,0 +1,40 @@
+# Runtime working directory: uploads, outputs, temp, job history.
+workspace/
+
+# Generated test media.
+samples/*.mp4
+!samples/noisy_test.mp4
+samples/*.wav
+samples/*.mkv
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node
+web/node_modules/
+web/.vite/
+npm-debug.log*
+
+# The built UI is committed on purpose, so a fresh clone runs without
+# needing npm. Delete this line if you would rather build it yourself.
+# web/dist/
+
+# Editors and OS
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local overrides
+config.local.yaml
+.env
