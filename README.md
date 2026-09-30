@@ -15,6 +15,7 @@ Runs entirely on your own machine. No uploads, no API keys, no per-use cost.
 - **Hiss, fan noise, air conditioning, preamp whine** — solved
 - **Mouse clicks, keyboard, taps** — solved, repaired individually
 - **Low rumble and desk thumps** — solved
+- **Mouth and lip clicks** — *not yet*, they are resonant rather than impulsive
 - **Other people talking in the background** — *not yet*, see below
 
 That last one is worth reading about before you start. A speech denoiser is

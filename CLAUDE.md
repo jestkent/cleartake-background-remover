@@ -230,6 +230,31 @@ instead of guessing.
   lives.
 - The spectral gate handles steady noise only. For anything non-stationary,
   install DeepFilterNet.
+- **Mouth and lip clicks are not removed, and `declick.py` cannot be tuned to
+  do it.** The detector finds impulses through linear-prediction error, which
+  spikes on broadband transients. A mouth click is a short *resonant* burst,
+  so the predictor handles it comfortably and the residual barely moves.
+  Measured on a real five minute recording: spectral flatness 0.072 in the
+  source and 0.020 after denoising, against 1.0 for a true impulse, centroids
+  spread over 3 to 7 kHz, durations 1.4 to 9.7 ms, about 38 per minute. Of
+  the ten loudest, zero cleared the sharpness gate, and the repair count was
+  identical at sensitivity 0.6, at 1.8, and with the stage run a second time
+  after denoising. Removing these needs spectral repair over the offending
+  time-frequency cells, which is a different stage, not a bigger number.
+- **The sharpness gate only sees clicks well under its baseline window.** It
+  compares a sample against a 4 ms running mean, which is the same width as
+  the widest click `max_click_ms` permits. An event that fills its own window
+  sits near the window mean and can never clear the 4x ratio, so the real
+  ceiling is nearer 2 ms than the nominal 3 ms. Scaling the window with the
+  click length does fix that in isolation, but raising `max_click_ms` to 12 ms
+  alongside it put 29 false positives into 20 seconds of clean synthetic
+  speech. Plosives occupy the same 5 to 15 ms range as the clicks you would be
+  reaching for, so this is recorded as a limit rather than patched.
+- **Removing hiss makes whatever it was covering louder.** On the same
+  recording the high-frequency floor fell 19.1 dB and pre-existing clicks went
+  from 3.2 to 8.2 prominence, a factor of 2.55, without a single new click
+  being created. Expect "the denoiser added clicks" reports that are really
+  unmasking, and check the source before believing them.
 
 ## Style
 
